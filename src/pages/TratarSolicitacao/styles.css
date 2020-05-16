@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+.t-container {
+  background: rgba(221, 241, 253, 0.2);
+  height: 310px;
+  text-align: left;
+  padding: 5px;
+  margin: 10px 0;
+  color: #000;
+  border-radius: 3px;
+  -webkit-box-shadow: 2px 2px 6px #b8b8b8; 
+	   -moz-box-shadow: 2px 2px 6px #b8b8b8;
+          box-shadow: 2px 2px 6px #b8b8b8;
+}
+
+.col-h {
+  height: 25%;
+  padding-top: 50px;
+  padding-left: 35%;
+}
+
+
+/* quando maior que 768 */
+@media (min-width: 768px) {
+
+  .col-h {
+    width: 20%;
+    height: 100%;
+    padding-top: 140px;
+    padding-left: 0;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .t-container {
+    height: 340px;
+  }
+}
+
+.col-form select {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  width: 70%;
+}
+
+.col-form textarea {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 350;
+  font-size: 15px;
+  width: 70%;
+}
+
+@media (max-width: 767px) {
+  .col-form select,
+  .col-form textarea {
+    width: 100%;
+  }
+}
+
+.col-h a {
+  width: 100px;
+  display: flex;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  align-items: center;
+}
+
+.col-h a svg{
+  margin-right: 3px;
+}
