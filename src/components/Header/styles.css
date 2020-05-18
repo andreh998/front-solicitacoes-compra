@@ -19,7 +19,17 @@
   justify-content: space-between;
 }
 
-.header p {
+
+.header div {
+  display: flex;
+}
+
+.header button {
+  margin-left: 20px;
+  
+}
+
+.header h4 {
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;  
