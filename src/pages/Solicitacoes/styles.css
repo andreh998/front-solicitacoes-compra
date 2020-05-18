@@ -157,15 +157,17 @@
   }
 }
 
-.col-href a {
-  width: 100px;
+.col-href button {
+  width: 110px;
   display: flex;
-  text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  font-size: 20px;
   align-items: center;
+  border: 0;
+  background: transparent;
 }
 
-.col-href a svg{
-  margin-right: 3px;
+.col-href button:hover{
+  opacity: 0.8;
 }

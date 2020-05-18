@@ -1,8 +1,17 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './styles.css';
 
 export default function Login() {
+
+const history = useHistory();
+
+function validar(e) {
+  e.preventDefault();
+  history.push('/cadastro');
+}
+
   return(
     <div className="container-login">
 
@@ -19,7 +28,7 @@ export default function Login() {
             <input type="password"/>
           </div>
           <div>
-            <a href="asduio">Entrar</a>
+            <button onClick={(e) => validar(e)}>Entrar</button>
           </div>
         </form>
       </div>

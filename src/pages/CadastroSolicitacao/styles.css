@@ -2,7 +2,7 @@
 
 .f-container {
   background: rgba(221, 241, 253, 0.2);
-  height: 180px;
+  height: 200px;
   text-align: left;
   padding: 5px;
   margin: 10px 0;
@@ -44,7 +44,7 @@
 
 @media (max-width: 768px) {
   .f-container {
-    height: 240px;
+    height: 250px;
   }
 }
 
@@ -73,16 +73,17 @@
   }
 }
 
-.col-hrefs a {
-  width: 100px;
+.col-hrefs button {
+  width: 110px;
   display: flex;
-  text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 20px;
   align-items: center;
+  border: 0;
+  background: transparent;
 }
 
-.col-hrefs a svg{
-  margin-right: 3px;
+.col-hrefs button:hover{
+  opacity: 0.8;
 }

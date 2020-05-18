@@ -66,13 +66,14 @@
   text-align: center;
 }
 
-.form-login div > a { 
+.form-login div > button { 
   align-self: center;
   text-align: center;
   margin: 50px 0;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   color: #ffffff;
+  background: transparent;
   font-size: 20px;
   font-weight: 300;
   width: 150px;
@@ -81,4 +82,8 @@
   border-color: #ffffff;
   border-width: 1px;
   border-style: solid;
+}
+
+.form-login div > button:hover{
+  opacity: 0.8;
 }

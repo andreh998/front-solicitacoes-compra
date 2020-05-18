@@ -2,7 +2,7 @@
 
 .t-container {
   background: rgba(221, 241, 253, 0.2);
-  height: 310px;
+  height: 330px;
   text-align: left;
   padding: 5px;
   margin: 10px 0;
@@ -34,7 +34,7 @@
 
 @media (max-width: 768px) {
   .t-container {
-    height: 340px;
+    height: 360px;
   }
 }
 
@@ -47,9 +47,10 @@
 
 .col-form textarea {
   font-family: 'Poppins', sans-serif;
-  font-weight: 350;
+  font-weight: 300;
   font-size: 15px;
   width: 70%;
+  height: 40px;
 }
 
 @media (max-width: 767px) {

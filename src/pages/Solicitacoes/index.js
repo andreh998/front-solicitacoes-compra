@@ -26,10 +26,10 @@ export default function Aprovacao() {
                 <h4 className="s-text">Valor total: 12.90</h4>
               </div>              
               <div className="col col-href">
-                <a href="/teste" >
+                <button>
                   <FiEye size={18} color="#1e99eb"/>
                   Visualizar
-                </a>
+                </button>
               </div>
           </div>
         </div>
@@ -43,10 +43,10 @@ export default function Aprovacao() {
                 <h4 className="s-text">Valor total: 12.90</h4>
               </div>              
               <div className="col col-href">
-                <a href="/teste" >
+                <button>
                   <FiEye size={18} color="#1e99eb"/>
                   Visualizar
-                </a>
+                </button>
               </div>
           </div>
         </div>
