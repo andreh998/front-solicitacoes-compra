@@ -18,3 +18,18 @@
 .title svg {
   margin-left: 15px;
 }
+
+.title select {
+  height: 35px;
+  width: 50%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+@media (max-width: 540px) {
+  .title select {
+    width: 100%;
+  }
+}
