@@ -15,7 +15,7 @@ export default function Aprovacao() {
    */
   const [situacao, setSituacao] = useState('Aguardando');
   const [solicitacoes, setSolicitacoes] = useState([]);
-  const [color, setColor] = useState( '#059e2b');
+  const [color, setColor] = useState( '#1d33ff');
 
   /**
    * função assíncrona responsável por carregar as solicitações e salvá-las
@@ -28,7 +28,7 @@ export default function Aprovacao() {
 
   const SituacaoTitulo = ({ situacao }) => {
     if (situacao === 'Aguardando') {
-      setColor("#059e2b");
+      setColor("#1d33ff");
       return (
         <div className="title">
           <h3>Solicitações Aguardando</h3>
@@ -36,7 +36,7 @@ export default function Aprovacao() {
         </div>
       );
     } else if (situacao === 'Aprovado') {
-      setColor("#1d33ff");
+      setColor("#059e2b");
       return (
         <div className="title">
           <h3>Solicitações Aprovadas</h3>
@@ -63,10 +63,8 @@ export default function Aprovacao() {
     <Header />
     <div className="container">
 
-      <div className="title">
-        <h3>Filtro</h3>
-      </div>
-      <div className="title">
+      <div className="filtro">
+        <h3>Filtre pelo status da solicitação:</h3>      
         <select onChange={e => setSituacao(e.target.value)}>
           <option selected value="Aguardando">Aguardando aprovação</option>
           <option value="Aprovado">Aprovadas</option>
@@ -85,7 +83,11 @@ export default function Aprovacao() {
                   <h4 className="s-text">Solicitante: {item.solicitante}</h4>
                   <h4 className="s-text">Item: {item.descricao}</h4>
                   <h4 className="s-text">Quantidade: {item.quantidade}</h4>
-                  <h4 className="s-text">Valor total: {item.preco}</h4>
+                  <h4 className="s-text">Valor total: {new Intl.NumberFormat('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                    }).format(item.preco)}
+                  </h4>
                   {situacao === 'Aprovado' ? 
                   <h4 style={{color: color }} className="s-text">Aprovado por: {item.aprovador}</h4>
                   : situacao === 'Reprovado' ?

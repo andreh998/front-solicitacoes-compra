@@ -46,6 +46,7 @@
 }
 
 .col-form textarea {
+  resize: vertical;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 15px;
@@ -72,4 +73,19 @@
 
 .col-h a svg{
   margin-right: 3px;
+}
+
+.col-h button {
+  width: 110px;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  align-items: center;
+  border: 0;
+  background: transparent;
+}
+
+.col-h button:hover{
+  opacity: 0.8;
 }

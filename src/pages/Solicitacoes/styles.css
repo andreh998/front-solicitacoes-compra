@@ -157,8 +157,9 @@
   }
 }
 
-.col-href button {
-  width: 110px;
+.link {
+  text-decoration: none;
+  width: 120px;
   display: flex;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -166,8 +167,13 @@
   align-items: center;
   border: 0;
   background: transparent;
+  color: #000;
 }
 
-.col-href button:hover{
+.link:hover{
   opacity: 0.8;
+}
+
+.link svg {
+  margin-right: 5px;
 }

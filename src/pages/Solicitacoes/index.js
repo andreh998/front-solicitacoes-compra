@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FiEye } from 'react-icons/fi';
 import axios from '../../services/axios';
+import { Link } from "react-router-dom";
 
 import Header from '../../components/Header';
 
@@ -22,20 +23,7 @@ export default function Aprovacao() {
     setSolicitacoes(response.data);
   }
 
-  /**
-   * 
-   * A função visualizar irá encaminhar o usuário para a tela de 
-   * aprovação/reprovação da solicitação
-   * 
-   * @param {*} e o evento no qual impedira o reload quando o botão for clicado
-   * @param {*} id o id da solicitação que será enviado para a prox. tela
-   */
-  function visualizar(e, id) {
-    e.preventDefault();
-    console.log(id);
-  }
-
-  /**
+   /**
    * useEffect será executado sempre que a página for carregada, pois não 
    * informei nenhum estado nele.
    * Ele será responsável por chamar a função carregarSolicitacoes.
@@ -62,13 +50,23 @@ export default function Aprovacao() {
                   <h4 className="s-text">Solicitante: {item.solicitante}</h4>
                   <h4 className="s-text">Item: {item.descricao}</h4>
                   <h4 className="s-text">Quantidade: {item.quantidade}</h4>
-                  <h4 className="s-text">Valor total: {item.preco}</h4>
+                  <h4 className="s-text">Valor total: {new Intl.NumberFormat('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                    }).format(item.preco)}
+                  </h4>
                 </div>              
                 <div className="col col-href">
-                  <button onClick={e => visualizar(e, key)}>
+                  <Link 
+                    className="link"
+                    to={{
+                      pathname: "/tratar",
+                      solicitacaoId: item.id
+                    }}
+                  >
                     <FiEye size={18} color="#1e99eb"/>
                     Visualizar
-                  </button>
+                  </Link>
                 </div>
             </div>
           </div>
