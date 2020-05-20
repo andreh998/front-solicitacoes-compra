@@ -96,3 +96,7 @@
 .col-hrefs button:hover{
   opacity: 0.8;
 }
+
+.errorMessage {
+  color: #e43a3a;
+}

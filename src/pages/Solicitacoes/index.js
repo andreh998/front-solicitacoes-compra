@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { FiEye } from 'react-icons/fi';
+import { FiArrowLeft, FiEye } from 'react-icons/fi';
 import axios from '../../services/axios';
 import { Link } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 import Header from '../../components/Header';
 
 import './styles.css';
 
 export default function Aprovacao() {
+
+
+  const history = useHistory();
 
   /**
    * Crio um estado para as solicitações e inicio o mesmo com um array vazio
@@ -38,6 +42,11 @@ export default function Aprovacao() {
     <Header />
     <div className="container">
       
+      <button className="go-back"onClick={() => history.goBack()}>
+        <FiArrowLeft size={24} color='#fff' />
+        <h3>Voltar</h3>
+      </button>
+
       <div className="title">
         <h3>Solicitações Ativas</h3>
       </div>

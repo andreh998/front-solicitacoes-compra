@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { FiCheckCircle, FiXOctagon, FiInbox } from 'react-icons/fi';
+import { FiArrowLeft, FiCheckCircle, FiXOctagon, FiInbox } from 'react-icons/fi';
 import axios from '../../services/axios';
+import { useHistory } from 'react-router-dom';
 
 import Header from '../../components/Header';
 
 import './styles.css';
 
 export default function Aprovacao() {
+
+  const history = useHistory();
 
   /**
    * Crio um estado para a situação das solicitações, iniciado com o status
@@ -62,6 +65,11 @@ export default function Aprovacao() {
     <>
     <Header />
     <div className="container">
+
+      <button className="go-back" onClick={() => history.goBack()}>
+        <FiArrowLeft size={24} color='#fff' />
+        <h3>Voltar</h3>
+      </button>
 
       <div className="filtro">
         <h3>Filtre pelo status da solicitação:</h3>      

@@ -162,3 +162,22 @@ select {
   color: #fff;
   background: #3fda59;
 }
+
+.go-back {
+  margin-top: 20px;
+  border: 0;
+  background: #1e99eb;
+  display: flex;
+  flex-direction: row;
+  align-items: center;  
+  height: 100%;  
+  width: 85px;
+  border-radius: 30px;
+}
+
+.go-back h3{
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+}

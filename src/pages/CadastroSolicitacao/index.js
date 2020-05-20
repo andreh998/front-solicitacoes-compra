@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FiCheck, FiCheckSquare, FiXSquare, FiX } from 'react-icons/fi';
+import { FiCheck, FiCheckSquare, FiXSquare, FiX, FiArrowLeft } from 'react-icons/fi';
 import NumberFormat from 'react-number-format';
 import axios from '../../services/axios';
+import { useHistory } from 'react-router-dom';
 
 import Header from '../../components/Header';
 
@@ -9,13 +10,15 @@ import './styles.css';
 
 export default function Cadastro() {
 
-  const [descricao, setDescricao] = useState('');
+  const history = useHistory();
+  const [descricao, setDescricao] = useState();
   const [quantidade, setQuantidade] = useState();
-  const [valor, setValor] = useState(0);
+  const [valor, setValor] = useState();
   const [statusModal, setStatusModal] = useState('none');
   const [color, setColor] = useState('');
   const [msg, setMsg] = useState('');
   const [responseOK, setResponseOK] = useState(true);
+  const [erros, setErros] = useState([]);
 
   function enviar(e) {
     e.preventDefault();
@@ -26,12 +29,15 @@ export default function Cadastro() {
       preco: valor,
     };
     axios.post('/solicitacoes', data).then(result => {
+      setErros('');
       setColor('#3bbd4d');
       setMsg('Solicitação de compra cadastrada com sucesso!');
       setResponseOK(true);
     }).catch(err => {
+      console.log(err.response.data.errors);
+      setErros(err.response.data.errors);
       setColor('#f73a3a');
-      setMsg('Erro ao cadastrar solicitação de compra!');
+      setMsg('Erro ao cadastrar solicitação de compra!');      
       setResponseOK(false);
     }).finally(() => {
       setStatusModal('block');
@@ -61,7 +67,14 @@ export default function Cadastro() {
             </span>
           </div>
           <div className="text">
-            <h3>{msg}</h3>
+            <h3>{msg}</h3>            
+            {erros ?
+              erros.map((item, key) => (
+                <h3 className="errorMessage"> <FiX size={18} /> {item.defaultMessage}</h3>
+              ))
+              :
+              <></>
+            }
           </div>
         </div>
       </div>
@@ -75,6 +88,11 @@ export default function Cadastro() {
     <div className="container">
       
       <Modal />
+
+      <button className="go-back" onClick={() => history.goBack()}>
+        <FiArrowLeft size={24} color='#fff' />
+        <h3>Voltar</h3>
+      </button>
 
       <div className="title">
         <h3>Solicitação de materiais </h3>

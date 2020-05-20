@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { isLogin } from './services/validaRotas';
+import { hasPermission } from './services/validaAcesso';
 
 /**
  * Importação dos componentes
@@ -28,7 +29,7 @@ const PrivateRoute = ({ component: Component, ...rest}) => (
   <Route 
     {...rest} 
     render={props => 
-      isLogin() ? (
+      isLogin() && hasPermission(props) ? (
         <Component {...props} />
       ) : (
         <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
