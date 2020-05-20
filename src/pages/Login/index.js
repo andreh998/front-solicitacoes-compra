@@ -16,7 +16,9 @@ function validar(e) {
     login, senha
   };
   axios.post('/usuarios', data).then(result => {
-    console.log(result);
+    localStorage.setItem("usuario", result.data.nomeCompleto);
+    localStorage.setItem("perfil", result.data.perfil);
+    history.push('/');
   }).catch(err => {
     console.log(err);
   }).finally(() => {

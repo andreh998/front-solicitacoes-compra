@@ -20,7 +20,7 @@ export default function Cadastro() {
   function enviar(e) {
     e.preventDefault();
     const data = {
-      solicitante: 'André Hoffmann',
+      solicitante: localStorage.getItem("usuario"),
       situacao: 'Aguardando',
       descricao, quantidade, 
       preco: valor,

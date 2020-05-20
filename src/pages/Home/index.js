@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { FiX } from 'react-icons/fi';
 
 import Header from '../../components/Header';
 
@@ -9,35 +11,69 @@ import consultar from '../../assets/consultar.png';
 import sair from '../../assets/sair.png';
 
 export default function Home() {
+
+  const history = useHistory();
+  const [statusModal, setStatusModal] = useState('none');
+
+  function Sair() {
+    setStatusModal('none');
+    localStorage.clear();
+    history.push('/login');
+  }
+
+  const Modal = () => {
+    return (
+      <div style={{ display: statusModal}} id="modalSolicitacao" className="modal">
+        <div className="modal-content">
+          <div className="modal-header color-header">          
+            <span onClick={() => setStatusModal('none')} className="close">
+              <FiX size={18} color={'#000'} />
+            </span>
+          </div>
+          <div className="text">
+            <h3>Deseja realmente sair?</h3>
+          </div>
+          <div className="modalButtons">
+            <button className="b-sim" onClick={() => Sair()}>Sim</button>
+            <button className="b-nao" onClick={() => setStatusModal('none')}>Não</button>
+          </div>
+        </div>
+      </div>
+    )    
+  }
+
   return(
     <>
       <Header />
+
+      <Modal/>
+
       <div className="container">
         <div style={{marginTop: 15}} className="row">
 
           <div className="column col-5">
-            <button className="content">
+            <button onClick={() => history.push('/cadastro')} className="content">
               <img className="imgs" src={nova} alt="Cadastrar Solicitação"></img>
               <h3>Solicitar material</h3>
             </button>
           </div>
 
           <div className="column col-5">
-            <button className="content">
-              <img className="imgs" src={consultar} alt="Cadastrar Solicitação"></img>
+            <button onClick={() => history.push('/consultar')} className="content">
+              <img className="imgs" src={consultar} alt="Consultar Solicitações"></img>
               <h3>Consultar </h3>
             </button>
           </div>
 
           <div className="column col-5">
-            <button className="content">
+            <button onClick={() => history.push('/solicitacoes')} className="content">
               <img className="imgs" src={aprovacao} alt="Aprovar Solicitaçòes"></img>
               <h3>Aprovações </h3>
             </button>
           </div>
 
           <div className="column col-5">
-            <button className="content">
+            <button onClick={() => setStatusModal('block')} className="content">
               <img className="imgs" src={sair} alt="Cadastrar Solicitação"></img>
               <h3>Sair</h3>
             </button>

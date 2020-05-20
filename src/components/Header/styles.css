@@ -1,13 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
-
-/* reset */
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-      box-sizing: border-box;
-}
 
 .header {
   display: flex;
@@ -18,7 +8,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
 
 .header div {
   display: flex;
@@ -33,14 +22,18 @@
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;  
+  font-size: 16px;
   margin-left: 20px;
   margin-right: 20px;
 }
 
-.header a {
+.header button {
   color: #fff;
+  background: transparent;
+  border: 0;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;  
+  font-size: 16px;
   margin-left: 20px;
   margin-right: 20px;
   text-decoration: none;
