@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FiX } from 'react-icons/fi';
 
@@ -14,6 +14,10 @@ export default function Home() {
 
   const history = useHistory();
   const [statusModal, setStatusModal] = useState('none');
+  const [perfil, setPerfil] = useState(localStorage.getItem("perfil"));
+  const [menuSolicitar, setMenuSolicitar] = useState('');
+  const [menuConsultar, setMenuConsultar] = useState('');
+  const [menuAprovacao, setMenuAprovacao] = useState('');
 
   function Sair() {
     setStatusModal('none');
@@ -42,6 +46,28 @@ export default function Home() {
     )    
   }
 
+  useEffect(() => {
+    switch(perfil) {
+      case 'solicitante':        
+        setMenuAprovacao('none');
+        setMenuConsultar('inline-block');
+        setMenuSolicitar('inline-block');
+        break;
+      case 'almoxarife':
+        setMenuAprovacao('inline-block');
+        setMenuConsultar('none');
+        setMenuSolicitar('none');
+        break;
+      case 'admin':        
+        setMenuAprovacao('none');
+        setMenuSolicitar('none');  
+        setMenuConsultar('inline-block');   
+        break;
+      default:
+        break;   
+    }
+  },[perfil]);
+
   return(
     <>
       <Header />
@@ -51,28 +77,28 @@ export default function Home() {
       <div className="container">
         <div style={{marginTop: 15}} className="row">
 
-          <div style={{display: 'inline-block'}} className="column col-5">
+          <div style={{ display: menuSolicitar }} className="column col-5">
             <button onClick={() => history.push('/cadastro')} className="content">
               <img className="imgs" src={nova} alt="Cadastrar Solicitação"></img>
               <h3>Solicitar material</h3>
             </button>
           </div>
 
-          <div  style={{display: 'inline-block'}} className="column col-5">
+          <div  style={{display: menuConsultar}} className="column col-5">
             <button onClick={() => history.push('/consultar')} className="content">
               <img className="imgs" src={consultar} alt="Consultar Solicitações"></img>
               <h3>Consultar </h3>
             </button>
           </div>
 
-          <div style={{display: 'inline-block'}} className="column col-5">
+          <div style={{display: menuAprovacao}} className="column col-5">
             <button onClick={() => history.push('/solicitacoes')} className="content">
               <img className="imgs" src={aprovacao} alt="Aprovar Solicitaçòes"></img>
               <h3>Aprovações </h3>
             </button>
           </div>
 
-          <div style={{display: 'inline-block'}} className="column col-5">
+          <div style={{display: 'inline-block'}}  className="column col-5">
             <button onClick={() => setStatusModal('block')} className="content">
               <img className="imgs" src={sair} alt="Cadastrar Solicitação"></img>
               <h3>Sair</h3>
