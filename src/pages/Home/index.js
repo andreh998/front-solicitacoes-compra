@@ -51,28 +51,28 @@ export default function Home() {
       <div className="container">
         <div style={{marginTop: 15}} className="row">
 
-          <div className="column col-5">
+          <div style={{display: 'inline-block'}} className="column col-5">
             <button onClick={() => history.push('/cadastro')} className="content">
               <img className="imgs" src={nova} alt="Cadastrar Solicitação"></img>
               <h3>Solicitar material</h3>
             </button>
           </div>
 
-          <div className="column col-5">
+          <div  style={{display: 'inline-block'}} className="column col-5">
             <button onClick={() => history.push('/consultar')} className="content">
               <img className="imgs" src={consultar} alt="Consultar Solicitações"></img>
               <h3>Consultar </h3>
             </button>
           </div>
 
-          <div className="column col-5">
+          <div style={{display: 'inline-block'}} className="column col-5">
             <button onClick={() => history.push('/solicitacoes')} className="content">
               <img className="imgs" src={aprovacao} alt="Aprovar Solicitaçòes"></img>
               <h3>Aprovações </h3>
             </button>
           </div>
 
-          <div className="column col-5">
+          <div style={{display: 'inline-block'}} className="column col-5">
             <button onClick={() => setStatusModal('block')} className="content">
               <img className="imgs" src={sair} alt="Cadastrar Solicitação"></img>
               <h3>Sair</h3>

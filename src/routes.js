@@ -22,15 +22,21 @@ import NotFound from './pages/404';
  * informadas em uma Route simples, e depois passa eles para a Route privada
  * definida
  * 
- * render é responsável por renderizar o componente, porém antes ele verifica
- * se o usuário está logado, caso contrário ele é redirecionado para o login.
+ * render é responsável por renderizar o componente
+ * 
+ * isLogin verifica se o usuário está logado
+ * hasPermission verifica se tem permissão para a tela
  */
 const PrivateRoute = ({ component: Component, ...rest}) => (
   <Route 
     {...rest} 
     render={props => 
-      isLogin() && hasPermission(props) ? (
-        <Component {...props} />
+      isLogin() ? (
+        hasPermission(props) ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+        )
       ) : (
         <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
       )
