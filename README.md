@@ -41,11 +41,11 @@ Perfil **admin** só pode consultar as solicitações filtrando-as pela situaç�
 
 Um arquivo com os SQLs (`dump.sql`) para criação das tabelas e inserção dos usuários está na raiz do projeto.
 
-## Back-end:
+### Back-end:
 
 https://github.com/andreh998/back-java-solicitacoes-compra
 
-### Produção:
+## Produção:
 
 Já fiz o build da aplicação que está na pasta `build`, mas para gerá-lo novamente execute:
 ### `npm run build`
