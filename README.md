@@ -6,7 +6,7 @@ Um projeto com React, para um sistema básico de solicitações de compra em um 
 
 Ao clonar ou baixar o projeto, em sua pasta raiz execute os comandos abaixo:
 
-Primeiro instale as dependencias do projeto:
+Primeiro instale as dependências do projeto:
 ### `npm install`
 
 Rode a aplicação em modo de desenvolvimento: 
@@ -47,10 +47,16 @@ https://github.com/andreh998/back-java-solicitacoes-compra
 
 ### Produção:
 
-Para criar o aplicativo para produção execute:
+Já fiz o build da aplicação que está na pasta `build`, mas para gerá-lo novamente execute:
 ### `npm run build`
 
-Será criada uma pasta `build` na raiz do projeto com os arquivos minificados.
+Para rodá-lo, acesse a pasta build, execute o comando `npm install` para instalar as dependências, 
+e depois `npm start` para iniciar o servidor de produção na porta `9000`.
+
+## css e js minificados
+
+O react gera automaticamente os arquivos de css e js minificados. Depois do build eles ficam na pasta `build\static`
+
 
 ## Imagens
 
