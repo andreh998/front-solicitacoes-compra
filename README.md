@@ -37,8 +37,8 @@ Perfil **admin** só pode consultar as solicitações filtrando-as pela situaç�
 
 ## Banco de dados do back-end
 
-Um arquivo com os SQLs para criação das tabelas e inserção dos usuários está na raiz do projeto.
-`dump.sql`
+Um arquivo com os SQLs (`dump.sql`) para criação das tabelas e inserção dos usuários está na raiz do projeto.
+
 
 ### Produção:
 
