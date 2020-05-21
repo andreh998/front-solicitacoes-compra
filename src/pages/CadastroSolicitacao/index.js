@@ -10,7 +10,14 @@ import './styles.css';
 
 export default function Cadastro() {
 
+  /**
+   * Defino o history, que será responsável pela navegação
+   */
   const history = useHistory();
+
+  /**
+   * Defino os estados
+   */
   const [descricao, setDescricao] = useState();
   const [quantidade, setQuantidade] = useState();
   const [valor, setValor] = useState();
@@ -20,14 +27,29 @@ export default function Cadastro() {
   const [responseOK, setResponseOK] = useState(true);
   const [erros, setErros] = useState([]);
 
-  function enviar(e) {
+  /**
+   * Função responsável por enviar os dados via POST para back-end e salvar a
+   * solicitação
+   * @param {*} e Evento que será respnsável por impedir que a página seja atualizada
+   */
+  function Enviar(e) {
     e.preventDefault();
+    /**
+     * Defino um objeto data com todos os dados que serão enviados via POST para
+     * a API
+     */
     const data = {
       solicitante: localStorage.getItem("usuario"),
       situacao: 'Aguardando',
       descricao, quantidade, 
       preco: valor,
-    };
+    };    
+    /**
+     * O axios faz o POST para a API passando o objeto data.
+     * O retorno é uma Promise que se for concluída tanto com sucesso quanto 
+     * falha, definirá os estados que atualizarão a Modal, que por sua vez é
+     * chamada no finally()
+     */
     axios.post('/solicitacoes', data).then(result => {
       setErros('');
       setColor('#3bbd4d');
@@ -44,6 +66,10 @@ export default function Cadastro() {
     });
   }
 
+  /**
+   * Componente Icon, definirá qual será o ícone da Modal conforme o retorno do
+   * POST feito pelo axios
+   */
   const Icon = () => {
     if (responseOK) {
       return (
@@ -56,6 +82,10 @@ export default function Cadastro() {
     }
   }
 
+  /**
+   * Modal que informará o usuário se a criação da solicitação foi bem sucedida
+   * ou não
+   */
   const Modal = () => {
     return (
       <div style={{ display: statusModal}} id="modalSolicitacao" className="modal">
@@ -121,7 +151,7 @@ export default function Cadastro() {
             </div>
           </form>
           <div className="col col-hrefs">    
-            <button onClick={e => enviar(e)} type="button">              
+            <button onClick={e => Enviar(e)} type="button">              
               <FiCheck color="#1e99eb" size={24}/>
               Solicitar
             </button>  

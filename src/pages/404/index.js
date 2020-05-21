@@ -9,6 +9,13 @@ export default function NotFound() {
 
   let location = useLocation();
 
+
+  /**
+   * Página que informa ao usuário que a rota acessada não existe
+   * 
+   * Com a validação do acesso em cada rota, ele nunca cairá nessa página
+   */
+
   return(
     <>
       <Header />

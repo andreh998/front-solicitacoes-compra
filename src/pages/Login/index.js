@@ -7,19 +7,38 @@ import './styles.css';
 
 export default function Login() {
 
+  /**
+   * Defino o history, que será responsável pela navegação
+   */
   const history = useHistory();
 
+  /**
+   * Defino os estados
+   */
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
   const [statusModal, setStatusModal] = useState('none');
   const [msg, setMsg] = useState('');
   const [erros, setErros] = useState('');
 
+  /**
+   * Função responsável por enviar os dados para validação do login no back-end
+   * 
+   * @param {*} e Evento responsável por impedir a atualização da página
+   */
   function validar(e) {
     e.preventDefault();
     const data = {
       login, senha
     };
+    /**
+     * Axios faz um POST com os dados de login e retorna uma Promise.
+     * Se o login for bem sucedido, alguns dados do usuário são armazenados no
+     * localStorage e utilizados nas demais páginas da aplicação
+     * 
+     * Se o back-end retornar erro 400, significa que a senha está inválida
+     * Se o back-end retornar erro 500, significa que o usuário não foi encontrado
+     */
     axios.post('/usuarios', data).then(result => {
       localStorage.setItem("usuario", result.data.nomeCompleto);
       localStorage.setItem("perfil", result.data.perfil);    
@@ -32,10 +51,12 @@ export default function Login() {
         setErros('Usuário não encontrado!');
         setStatusModal('block');
       }
-    }).finally(() => {
     });
   }
 
+  /**
+   * Modal responsável por avisar o usuário se o login foi bem sucedido ou não
+   */
   const Modal = () => {
     return (
       <div style={{ display: statusModal}} id="modalSolicitacao" className="modal">

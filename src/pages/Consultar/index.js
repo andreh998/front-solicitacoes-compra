@@ -9,19 +9,20 @@ import './styles.css';
 
 export default function Aprovacao() {
 
+  /**
+   * Defino o history, que será responsável pela navegação
+   */
   const history = useHistory();
 
   /**
-   * Crio um estado para a situação das solicitações, iniciado com o status
-   * 'Aguardando'
-   * Crio um estado que conterá as solicitacoes, iniciado com um array vazio
+   * Defino os estados
    */
   const [situacao, setSituacao] = useState('Aguardando');
   const [solicitacoes, setSolicitacoes] = useState([]);
   const [color, setColor] = useState( '#1d33ff');
 
   /**
-   * função assíncrona responsável por carregar as solicitações e salvá-las
+   * Função assíncrona responsável por carregar as solicitações e salvá-las
    * no estado 'solicitacoes'
    */
   async function carregarSolicitacoes(situacao) {
@@ -29,6 +30,11 @@ export default function Aprovacao() {
     setSolicitacoes(response.data);
   }
 
+  /**
+   * Função responsável por definir qual o título da tela com base na situação
+   * escolhida no Select
+   * @param {*} param0 Recebe por parâmetro a situação
+   */
   const SituacaoTitulo = ({ situacao }) => {
     if (situacao === 'Aguardando') {
       setColor("#1d33ff");
@@ -57,6 +63,11 @@ export default function Aprovacao() {
     }
   }
 
+  /**
+   * Efeito responsável por chamar a função carregarSolicitacoes toda vez que uma
+   * situação diferente for escolhida no Select
+   * É executado sempre que o estado 'situacao' alterar
+   */
   useEffect(() => {
     carregarSolicitacoes(situacao);
   }, [situacao]);

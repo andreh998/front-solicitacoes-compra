@@ -7,10 +7,22 @@ import Header from '../../components/Header';
 
 import './styles.css';
 
+/**
+ * Página responsável pela aprovação das solicitações 
+ * 
+ * @param {*} props Recebe uma propriedade da tela anterior, contendo o id 
+ * da solicitação que será Aprovada ou Reprovada
+ */
 export default function Solicitacao( props ) {
 
+  /**
+   * Defino o history, que será responsável pela navegação
+   */
   const history = useHistory();
 
+  /**
+   * Estados
+   */
   const [solicitacao, setSolicitacao] = useState([]);
   const [situacao, setSituacao] = useState('Aprovado');
   const [habilitaObs, setHabilitaObs] = useState(true);
@@ -20,8 +32,14 @@ export default function Solicitacao( props ) {
   const [msg, setMsg] = useState('');
   const [responseOK, setResponseOK] = useState(true);
 
-  async function salvar() {
-    
+  /**
+   * Função responsável por atualizar o status da solicitação
+   */
+  async function Salvar() {    
+    /**
+     * Defino um objeto data com todos os dados que serão enviados via PUT para
+     * a API
+     */
     const data = {
       id: solicitacao.id,
       descricao: solicitacao.descricao,
@@ -30,8 +48,14 @@ export default function Solicitacao( props ) {
       solicitante: solicitacao.solicitante,
       observacao,
       situacao,
-      aprovador: 'Josefino Sharknado'
+      aprovador: localStorage.getItem("usuario")
     }
+    /**
+     * O axios faz o PUT para a API passando o id da solicitação e os dados.
+     * O retorno é uma Promise que se for concluída tanto com sucesso quanto 
+     * falha, definirá os estados que atualizarão a Modal, que por sua vez é
+     * chamada no finally()
+     */
     await axios.put(`/solicitacoes/${props.location.solicitacaoId}`, data).then(result => {
       setColor('#3bbd4d');
       setMsg(`Situação da solicitação alterada para ${situacao}!`);
@@ -46,6 +70,10 @@ export default function Solicitacao( props ) {
 
   }
 
+  /**
+   * Componente Icon, definirá qual será o ícone da Modal conforme o retorno do
+   * PUT feito pelo axios
+   */
   const Icon = () => {
     if (responseOK) {
       return (
@@ -58,6 +86,10 @@ export default function Solicitacao( props ) {
     }
   }
 
+  /**
+   * Modal que informará o usuário se a atualização do status foi bem sucedida
+   * ou não
+   */
   const Modal = () => {
     return (
       <div style={{ display: statusModal}} id="modalSolicitacao" className="modal">
@@ -77,6 +109,10 @@ export default function Solicitacao( props ) {
   }
 
 
+  /**
+   * Efeito responsável por capturar a solicitação que será atualizada.
+   * É executado sempre que página for aberta.
+   */
   useEffect(() => {
     axios.get(`/solicitacoes/${props.location.solicitacaoId}`).then(result => {
       setSolicitacao(result.data);
@@ -86,6 +122,10 @@ export default function Solicitacao( props ) {
     
   }, [])
 
+  /**
+   * Efeito responsável por habilitar ou desabilitar o textarea da Observação
+   * É executado sempre que o estado 'situacao' for alterado
+   */
   useEffect(()=> {
     if(situacao == 'Aprovado') {
       setHabilitaObs(true);
@@ -133,7 +173,7 @@ export default function Solicitacao( props ) {
             </div>
           </form>
           <div className="col col-h">    
-            <button type="button" onClick={salvar}> 
+            <button type="button" onClick={Salvar}> 
               <FiCheck color="#1e99eb" size={24}/>
               Salvar
             </button>          

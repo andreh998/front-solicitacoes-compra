@@ -10,12 +10,19 @@ export default function Header() {
   const history = useHistory();
   const [statusModal, setStatusModal] = useState('none');
 
+  /**
+   * Função responsável por abrir a modal que solicita ao usuário se ele realmente
+   * deseja sair
+   */
   function Sair() {
     setStatusModal('none');
     localStorage.clear();
     history.push('/login');
   }
 
+  /**
+   * Modal que solicita ao usuário se quer ou não sair
+   */
   const Modal = () => {
     return (
       <div style={{ display: statusModal}} id="modalSolicitacao" className="modal">

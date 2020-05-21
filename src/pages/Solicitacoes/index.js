@@ -10,7 +10,9 @@ import './styles.css';
 
 export default function Aprovacao() {
 
-
+  /**
+   * Defino o history, que será responsável pela navegação
+   */
   const history = useHistory();
 
   /**

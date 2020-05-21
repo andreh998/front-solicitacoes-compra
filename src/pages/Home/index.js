@@ -12,19 +12,33 @@ import sair from '../../assets/sair.png';
 
 export default function Home() {
 
+  /**
+   * Defino o history, que será responsável pela navegação
+   */
   const history = useHistory();
+
+  /**
+   * Defino os estados
+   */
   const [statusModal, setStatusModal] = useState('none');
   const [perfil, setPerfil] = useState(localStorage.getItem("perfil"));
   const [menuSolicitar, setMenuSolicitar] = useState('');
   const [menuConsultar, setMenuConsultar] = useState('');
   const [menuAprovacao, setMenuAprovacao] = useState('');
 
+  /**
+   * Função responsável por abrir a Modal que solicita ao usuário se ele
+   * realmente deseja sair do sistema
+   */
   function Sair() {
     setStatusModal('none');
     localStorage.clear();
     history.push('/login');
   }
 
+  /**
+   * Modal responsável por solicitar ao usuário se deseja ou não sair
+   */
   const Modal = () => {
     return (
       <div style={{ display: statusModal}} id="modalSolicitacao" className="modal">
@@ -46,6 +60,11 @@ export default function Home() {
     )    
   }
 
+  /**
+   * Efeito responsável por mostrar na tela apenas os menus pertinentes ao
+   * perfil daquele usuário
+   * É executado sempre quando a página é aberta
+   */
   useEffect(() => {
     switch(perfil) {
       case 'solicitante':        
