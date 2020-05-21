@@ -26,21 +26,21 @@ CREATE TABLE IF NOT EXISTS usuarios(
 );
 
 INSERT INTO usuarios (nome_completo, login, senha, perfil) VALUES (
-	'André Hoffmann',
-    'andre',
+	'Usuário Solicitante',
+    'solicitante',
     '123',
     'solicitante'
 );
 
 INSERT INTO usuarios (nome_completo, login, senha, perfil) VALUES (
-	'Camila Zanotto',
-    'camila',
+	'Usuário Aprovador',
+    'aprovador',
     '123',
     'almoxarife'
 );
 
 INSERT INTO usuarios (nome_completo, login, senha, perfil) VALUES (
-	'Lauro Hoffmann',
+	'Usuário Administrativo',
     'admin',
     '123',
     'admin'
