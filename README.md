@@ -16,7 +16,7 @@ Abra o [http://localhost:3000] em seu navegador para ter acesso ao sistema.
 
 ## Configurando o acesso ao Back-end
 
-Para consumir a API, verifique a URL correta para acesso ao seu back-end e informe-a no arquivo `axios.js` em src\services\axios.js, substituindo a `baseURL: 'http://localhost:8080'` informada pela correta (caso necessário).
+Para consumir a API, verifique a URL correta para acesso ao seu back-end e informe-a no arquivo `axios.js` em src\services\axios.js, substituindo a `baseURL: 'http://localhost:8080'` informada, pela correta (caso necessário).
 
 # Usuários e senhas para acesso ao sistema:
 
