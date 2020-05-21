@@ -12,7 +12,7 @@ Primeiro instale as dependencias do projeto:
 Rode a aplicação em modo de desenvolvimento: 
 ### `npm start`
 
-Abra o [http://localhost:3000] em seu navegador para ter acesso ao sistema.
+Abra a url http://localhost:3000 em seu navegador para ter acesso ao sistema.
 
 ## Configurando o acesso ao Back-end
 
