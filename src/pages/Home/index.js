@@ -66,7 +66,7 @@ export default function Home() {
       default:
         break;   
     }
-  },[perfil]);
+  },[]);
 
   return(
     <>

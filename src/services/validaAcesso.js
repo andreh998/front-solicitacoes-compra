@@ -34,6 +34,8 @@ export const hasPermission = (props) => {
       return telasAlmoxarife.includes(telaRequest) ? true : false
     case 'admin':
       return telasAdministrativo.includes(telaRequest) ? true : false
+    default:
+      break;
   }
 
 }

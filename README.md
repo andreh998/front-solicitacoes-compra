@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## front-solicitacoes-compra
 
-## Available Scripts
+Um projeto com React, para um sistema básico de solicitações de compra em um escritório.
 
-In the project directory, you can run:
+## Instalação
 
+Ao clonar ou baixar o projeto, em sua pasta raiz execute os comandos abaixo:
+
+Primeiro instale as dependencias do projeto:
+### `npm install`
+
+Rode a aplicação em modo de desenvolvimento: 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Abra o [http://localhost:3000] em seu navegador para ter acesso ao sistema.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Configurando o acesso ao Back-end
 
-### `npm test`
+Para consumir a API, verifique a URL correta para acesso ao seu back-end e informe-a no arquivo `axios.js` em src\services\axios.js, substituindo a `baseURL: 'http://localhost:8080'` informada pela correta (caso necessário).
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Usuários e senhas para acesso ao sistema:
 
+Cada usuário só tem acesso a determinadas funções no sistema com base em seu perfil.
+Perfil **solicitante** só pode consultar as solicitações e criar novas. <br/>
+Perfil **almoxarife** só pode visualizar as solicitações e aprová-las ou reprová-las.<br/>
+Perfil **admin** só pode consultar as solicitações filtrando-as pela situação.
+
+### Usuário com perfil para solicitar materiais (Solicitante):
+**usuário: solicitante** <br/>
+**senha: 123**
+### Usuário com perfil para aprovar a compra (Almoxarife):
+**usuário: aprovador** <br/>
+**senha: 123**
+### Usuário com perfil para consultar as solicitações (Administrativo):
+**usuário: admin** <br/>
+**senha: 123**
+
+## Banco de dados do back-end
+
+Um arquivo com os SQLs está na raiz do projeto.
+`dump.sql`
+
+### Produção:
+
+Para criar o aplicativo para produção execute:
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Será criada uma pasta `build` na raiz do projeto com os arquivos minificados.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Imagens
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![alt text](https://user-images.githubusercontent.com/42716178/82509849-6fa9b980-9adf-11ea-83c9-1f9f2fedcc17.png)
 
-### `npm run eject`
+![alt text](https://user-images.githubusercontent.com/42716178/82509851-70425000-9adf-11ea-9c5f-028c0777ee23.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![alt text](https://user-images.githubusercontent.com/42716178/82509852-70dae680-9adf-11ea-8264-ee10493b68a0.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![alt text](https://user-images.githubusercontent.com/42716178/82509853-70dae680-9adf-11ea-8719-effdbdfaf4b8.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![alt text](https://user-images.githubusercontent.com/42716178/82509854-71737d00-9adf-11ea-9d0b-5731b22590cf.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![alt text](https://user-images.githubusercontent.com/42716178/82509856-71737d00-9adf-11ea-9a4b-cbae236a4214.png)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![alt text](https://user-images.githubusercontent.com/42716178/82510030-ed6dc500-9adf-11ea-8094-a198dbfd5a21.png)
