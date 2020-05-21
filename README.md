@@ -25,6 +25,8 @@ Perfil **solicitante** só pode consultar as solicitações e criar novas. <br/>
 Perfil **almoxarife** só pode visualizar as solicitações e aprová-las ou reprová-las.<br/>
 Perfil **admin** só pode consultar as solicitações filtrando-as pela situação.
 
+*Usuários criados a partir do script disponível na raiz do projeto*
+
 ### Usuário com perfil para solicitar materiais (Solicitante):
 **usuário: solicitante** <br/>
 **senha: 123**
