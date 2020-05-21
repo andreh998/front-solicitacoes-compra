@@ -25,6 +25,8 @@ Perfil **solicitante** só pode consultar as solicitações e criar novas. <br/>
 Perfil **almoxarife** só pode visualizar as solicitações e aprová-las ou reprová-las.<br/>
 Perfil **admin** só pode consultar as solicitações filtrando-as pela situação.
 
+*Usuários criados a partir do script disponível na raiz do projeto*
+
 ### Usuário com perfil para solicitar materiais (Solicitante):
 **usuário: solicitante** <br/>
 **senha: 123**
@@ -39,6 +41,9 @@ Perfil **admin** só pode consultar as solicitações filtrando-as pela situaç�
 
 Um arquivo com os SQLs (`dump.sql`) para criação das tabelas e inserção dos usuários está na raiz do projeto.
 
+## Back-end:
+
+https://github.com/andreh998/back-java-solicitacoes-compra
 
 ### Produção:
 
